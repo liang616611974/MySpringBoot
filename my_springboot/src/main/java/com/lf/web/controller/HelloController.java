@@ -1,10 +1,14 @@
 package com.lf.web.controller;
 
 import com.lf.module.bean.Demo;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+
 
 /**
  * 在这里我们使用RestController  （等待于 @Controller 和 @RequestBody）
@@ -14,7 +18,9 @@ import java.util.Date;
  */
 @RestController
 public class HelloController {
-	
+
+	private static final Logger logger = LoggerFactory.getLogger(HelloController.class);
+
 	/**
 	 * 在这里我们使用@RequestMapping 建立请求映射:
 	 * http://127.0.0.1:8080/hello
@@ -48,9 +54,11 @@ public class HelloController {
 	 */
 	@RequestMapping("/getDemo")
 	public Demo getDemo(){
+		logger.debug("test debug=============");
+		logger.info("test inof=============");
 		Demo demo = new Demo();
 		demo.setId(1);
-		demo.setName("1111222333444555");
+		demo.setName("1111222333444");
 		demo.setCreateTime(new Date());
 		demo.setRemarks("这是备注信息");
 		return demo;
