@@ -52,7 +52,7 @@ public class HelloController {
 	 * Spring Boot默认使用的json解析框架是jackson
 	 * @return
 	 */
-	@RequestMapping(value = "/getDemo")
+	@RequestMapping("/getDemo")
 	public Demo getDemo(){
 		logger.debug("test debug=============");
 		logger.info("test inof=============");
