@@ -36,7 +36,8 @@
             <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
 
-        <!-- <dependency>
+      <!--  &lt;!&ndash; spring-boot-starter-thymeleaf &ndash;&gt;
+        <dependency>
              <groupId>org.springframework.boot</groupId>
              <artifactId>spring-boot-starter-thymeleaf</artifactId>
          </dependency>-->
@@ -49,17 +50,16 @@
             <scope>true</scope>
         </dependency>
 
-        <!-- jquery -->
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>jquery</artifactId>
-            <version>2.1.4</version>
-        </dependency>
-
         <!-- fastjson json框架 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
+        </dependency>
+
+        <!-- jquery -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
         </dependency>
 
         <!-- Commons 工具 -->

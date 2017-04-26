@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @date 2017/4/26 0026 22:32
  * @version 1.0
  */
-@ControllerAdvice
+//@ControllerAdvice
 public class ErrorExceptionHandler {
 
 	private static final Logger logger = LoggerFactory.getLogger(ErrorExceptionHandler.class);

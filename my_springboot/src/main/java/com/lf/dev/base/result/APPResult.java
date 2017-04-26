@@ -6,7 +6,7 @@ package com.lf.dev.base.result;
 * @date 2016-9-12
 * @version 1.0
  */
-public class APPResult<T> {
+public class AppResult<T> {
 	
 	private boolean flag; // 结果标识：成功 true;失败 fasle
 	private String code; // 结果代码 成功 0000;异常 9999;失败 9998;其他

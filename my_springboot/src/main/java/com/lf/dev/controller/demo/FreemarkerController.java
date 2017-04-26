@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class FreemarkerController {
 
-    @RequestMapping(value = "index")
+    @RequestMapping(value = "/web/free")
     public String index(ModelMap map) {
         map.put("title", "freemarker hello word");
-        return "index"; // 开头不要加上/，linux下面会出错
+        return "demo/freemarker/index"; // 开头不要加上/，linux下面会出错
     }
 }

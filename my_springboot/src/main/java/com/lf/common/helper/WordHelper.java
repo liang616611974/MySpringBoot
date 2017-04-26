@@ -1,3 +1,4 @@
+/*
 package com.lf.common.helper;
 
 import java.io.BufferedWriter;
@@ -11,28 +12,34 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateExceptionHandler;
 
+*/
 /**
 * <p>Title: WordHelper.java<／p>
 * <p>Description: word文档操作帮助类<／p>
 * @author Liangfeng
 * @date 2016-12-24
 * @version 1.0
- */
+ *//*
+
 public class WordHelper {
 	
-	/**
+	*/
+/**
 	 * 私有化构造函数
-	 */
+	 *//*
+
 	private WordHelper(){}
 	
-	/**
+	*/
+/**
 	 * 创建word文档
 	 * @param templateDir 模板所在目录对象
 	 * @param templateName 模板名称
 	 * @param paramMap 参数集合
 	 * @param os 输出流
 	 * @throws Exception
-	 */
+	 *//*
+
 	public static void createDocForTemplate(File templateDir,String templateName,Map<String,Object> paramMap,OutputStream os) throws Exception{
 		//1.创建一个合适的configuration对象
 		Configuration cfg = new Configuration(Configuration.VERSION_2_3_23);
@@ -52,3 +59,4 @@ public class WordHelper {
 
 
 }
+*/
