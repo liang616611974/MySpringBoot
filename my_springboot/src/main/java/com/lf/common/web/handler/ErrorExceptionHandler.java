@@ -1,4 +1,4 @@
-package com.lf.web.handler;
+package com.lf.common.web.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,22 +6,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
- * 异常处理类
- * 
- * @author hugovon
+ * @Title: ErrorExceptionHandler.java
+ * @Description: 
+ * @author Liangfeng
+ * @date 2017/4/26 0026 22:32
  * @version 1.0
  */
-@RestControllerAdvice
-public class RestErrorExceptionHandler {
+@ControllerAdvice
+public class ErrorExceptionHandler {
 
-	private static final Logger logger = LoggerFactory.getLogger(RestErrorExceptionHandler.class);
+	private static final Logger logger = LoggerFactory.getLogger(ErrorExceptionHandler.class);
 
 	/**
 	 * 统一异常处理
@@ -32,12 +29,12 @@ public class RestErrorExceptionHandler {
 	 */
 	@ExceptionHandler({ RuntimeException.class })
 	@ResponseStatus(HttpStatus.OK)
-	public Object processException(RuntimeException exception) {
+	public ModelAndView processException(RuntimeException exception) {
 		logger.info("自定义异常处理-RuntimeException");
-		Map<String, Object> strObjs = new HashMap<>();
-		strObjs.put("code", 500);
-		strObjs.put("错误",exception.getMessage());
-		return strObjs;
+		ModelAndView m = new ModelAndView();
+		m.addObject("roncooException", exception.getMessage());
+		m.setViewName("error/500");
+		return m;
 	}
 
 	/**
@@ -49,12 +46,12 @@ public class RestErrorExceptionHandler {
 	 */
 	@ExceptionHandler({ Exception.class })
 	@ResponseStatus(HttpStatus.OK)
-	public Object processException(Exception exception) {
+	public ModelAndView processException(Exception exception) {
 		logger.info("自定义异常处理-Exception");
-		Map<String, Object> strObjs = new HashMap<>();
-		strObjs.put("code", 500);
-		strObjs.put("错误",exception.getMessage());
-		return strObjs;
+		ModelAndView m = new ModelAndView();
+		m.addObject("roncooException", exception.getMessage());
+		m.setViewName("error/500");
+		return m;
 	}
 
 }

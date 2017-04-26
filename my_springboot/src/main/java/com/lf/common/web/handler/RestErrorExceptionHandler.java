@@ -1,12 +1,14 @@
-package com.lf.web.handler;
+package com.lf.common.web.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 异常处理类
@@ -14,10 +16,10 @@ import org.springframework.web.servlet.ModelAndView;
  * @author hugovon
  * @version 1.0
  */
-//@ControllerAdvice
-public class ErrorExceptionHandler {
+@RestControllerAdvice
+public class RestErrorExceptionHandler {
 
-	private static final Logger logger = LoggerFactory.getLogger(ErrorExceptionHandler.class);
+	private static final Logger logger = LoggerFactory.getLogger(RestErrorExceptionHandler.class);
 
 	/**
 	 * 统一异常处理
@@ -28,12 +30,12 @@ public class ErrorExceptionHandler {
 	 */
 	@ExceptionHandler({ RuntimeException.class })
 	@ResponseStatus(HttpStatus.OK)
-	public ModelAndView processException(RuntimeException exception) {
+	public Object processException(RuntimeException exception) {
 		logger.info("自定义异常处理-RuntimeException");
-		ModelAndView m = new ModelAndView();
-		m.addObject("roncooException", exception.getMessage());
-		m.setViewName("error/500");
-		return m;
+		Map<String, Object> strObjs = new HashMap<>();
+		strObjs.put("code", 500);
+		strObjs.put("错误",exception.getMessage());
+		return strObjs;
 	}
 
 	/**
@@ -45,12 +47,12 @@ public class ErrorExceptionHandler {
 	 */
 	@ExceptionHandler({ Exception.class })
 	@ResponseStatus(HttpStatus.OK)
-	public ModelAndView processException(Exception exception) {
+	public Object processException(Exception exception) {
 		logger.info("自定义异常处理-Exception");
-		ModelAndView m = new ModelAndView();
-		m.addObject("roncooException", exception.getMessage());
-		m.setViewName("error/500");
-		return m;
+		Map<String, Object> strObjs = new HashMap<>();
+		strObjs.put("code", 500);
+		strObjs.put("错误",exception.getMessage());
+		return strObjs;
 	}
 
 }
