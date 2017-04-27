@@ -1,4 +1,4 @@
-package com.lf.dev.model.vo;
+package com.lf.dev.model.vo.app;
 
 import com.alibaba.fastjson.annotation.JSONField;
 

@@ -6,6 +6,7 @@ import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.HttpMessageConverter;
 
@@ -17,6 +18,8 @@ import org.springframework.http.converter.HttpMessageConverter;
  * @version 1.0
  * @date 2017-04-25 下午 4:52
  */
+
+@ServletComponentScan
 @SpringBootApplication
 public class MySpringBootApp {
 

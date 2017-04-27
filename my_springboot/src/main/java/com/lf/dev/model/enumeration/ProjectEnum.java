@@ -1,4 +1,4 @@
-package com.lf.dev.base.enumeration;
+package com.lf.dev.model.enumeration;
 
 /**
 * <p>Title: ProjectEnum.java<／p>

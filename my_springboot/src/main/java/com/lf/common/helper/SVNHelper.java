@@ -109,7 +109,7 @@ public class SVNHelper {
 		ResultSet rs = null;
 		try{
 			//1.获取连接
-			String svnDBUrl = "jdbc:sqlite:" + workspacePath + "/" + projectName + "/.svn/wc.db";
+			String svnDBUrl = "jdbc:sqlite:" + workspacePath + "/" + projectName + "/.svn/wc.core";
 			conn = getConnection(svnDBUrl);
 			//2.构造查询sql 根据实际需求增加或删除过滤条件
 			StringBuffer sqlSb = new StringBuffer();
@@ -171,7 +171,7 @@ public class SVNHelper {
 		ResultSet rs = null;
 		try{
 			//1.获取连接
-			String svnDBUrl = "jdbc:sqlite:" + workspacePath + "/.svn/wc.db";
+			String svnDBUrl = "jdbc:sqlite:" + workspacePath + "/.svn/wc.core";
 			conn = getConnection(svnDBUrl);
 			//2.构造查询sql 根据实际需求增加或删除过滤条件
 			StringBuffer sqlSb = new StringBuffer();

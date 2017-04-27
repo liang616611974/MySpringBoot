@@ -1,11 +1,18 @@
 package com.lf.dev.controller.demo;
 
-import com.lf.dev.model.vo.DemoVO;
+import com.lf.dev.model.vo.app.DemoVO;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 
+/**
+ * @Title: FastJsonController.java
+ * @Description: FastJson 测试
+ * @author Liangfeng
+ * @date 2017/4/27 0027 上午 11:52
+ * @version 1.0
+ */
 @RestController
 public class FastJsonController {
 
