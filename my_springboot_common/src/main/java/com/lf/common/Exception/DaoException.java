@@ -1,4 +1,4 @@
-package com.lf.admin.common.Exception;
+package com.lf.common.Exception;
 
 /**
  * @Title: DaoException.java

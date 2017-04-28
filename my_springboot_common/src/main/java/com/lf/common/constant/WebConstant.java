@@ -1,4 +1,4 @@
-package com.lf.admin.common.constant;
+package com.lf.common.constant;
 
 /**
  * @Title: WebConstant.java

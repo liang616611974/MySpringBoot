@@ -1,4 +1,4 @@
-package com.lf.admin.common.helper;
+package com.lf.common.helper;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;

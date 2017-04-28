@@ -10,6 +10,7 @@
     <modules>
         <module>../my_springboot_core</module>
         <module>../my_springboot_common</module>
+		<module>../my_springboot_admin</module>
     </modules>
     <packaging>pom</packaging>
 

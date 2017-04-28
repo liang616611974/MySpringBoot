@@ -1,4 +1,4 @@
-package com.lf.admin.common.helper;
+package com.lf.common.helper;
 
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;

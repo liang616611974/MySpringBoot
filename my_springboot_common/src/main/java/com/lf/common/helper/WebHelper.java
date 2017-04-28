@@ -1,4 +1,4 @@
-package com.lf.admin.common.helper;
+package com.lf.common.helper;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

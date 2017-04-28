@@ -1,4 +1,4 @@
-package com.lf.admin.common.helper;
+package com.lf.common.helper;
 
 import org.apache.commons.lang3.StringUtils;
 
