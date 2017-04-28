@@ -6,10 +6,14 @@
 
     <groupId>com.lf</groupId>
     <artifactId>my_springboot</artifactId>
+    <packaging>pom</packaging>
     <name>MySpringBoot</name>
     <description>Demo project for Spring Boot</description>
+    <modules>
+        <module>my_springboot_core</module>
+    </modules>
 
-   <parent>
+    <parent>
        <groupId>com.lf</groupId>
        <artifactId>my_springboot_parent</artifactId>
        <version>1.0-SNAPSHOT</version>
