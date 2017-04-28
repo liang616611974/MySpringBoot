@@ -10,16 +10,14 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.HttpMessageConverter;
 
-/**
- * <p>Title: MySpringBootApp<／p>
- * <p>Description: <／p>
- *
- * @author Liangfeng
- * @version 1.0
- * @date 2017-04-25 下午 4:52
- */
 
-@ServletComponentScan
+/**
+ * @Title: MySpringBootApp.java
+ * @Description: 系统启动入口
+ * @author Liangfeng
+ * @date 2017/4/28 0028 下午 3:54
+ * @version 1.0
+ */
 @SpringBootApplication
 public class MySpringBootApp {
 
