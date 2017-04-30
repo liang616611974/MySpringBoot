@@ -1,4 +1,4 @@
-package com.lf.admin.dev.controller.demo;
+package com.lf.admin.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

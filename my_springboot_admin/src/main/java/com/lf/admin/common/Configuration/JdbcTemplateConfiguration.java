@@ -1,5 +1,6 @@
 package com.lf.admin.common.Configuration;
 
+import com.lf.admin.common.constant.DatabaseConstant;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,13 +23,13 @@ public class JdbcTemplateConfiguration {
      * @param dataSource
      * @return
      */
-    @Bean(name = "primaryJdbcTemplate")
-    public JdbcTemplate primaryJdbcTemplate(@Qualifier("primaryDataSource")DataSource dataSource){
+    @Bean(name = DatabaseConstant.PRIMARY_JDBC_TEMPLATE)
+    public JdbcTemplate primaryJdbcTemplate(@Qualifier(DatabaseConstant.PRIMARY_DATASOURCE)DataSource dataSource){
         return new JdbcTemplate(dataSource);
     }
 
-    @Bean(name = "secondaryJdbcTemplate")
-    public JdbcTemplate secondaryJdbcTemplate(@Qualifier("secondaryDataSource")DataSource dataSource){
+    @Bean(name = DatabaseConstant.SECONDARY_JDBC_TEMPLATE)
+    public JdbcTemplate secondaryJdbcTemplate(@Qualifier(DatabaseConstant.SECONDARY_DATASOURCE)DataSource dataSource){
         return new JdbcTemplate(dataSource);
     }
 

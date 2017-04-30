@@ -1,4 +1,4 @@
-package com.lf.admin.dev.controller.demo;
+package com.lf.admin.demo.controller;
 
 import com.lf.admin.dev.model.vo.DemoVO;
 import org.springframework.web.bind.annotation.RequestMapping;

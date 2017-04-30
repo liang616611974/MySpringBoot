@@ -1,17 +1,18 @@
 package com.lf.admin.common.Configuration;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.lf.admin.common.constant.DatabaseConstant;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.bind.RelaxedPropertyResolver;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.ApplicationContextException;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
-
 
 import javax.sql.DataSource;
 
@@ -38,41 +39,52 @@ public class DataSourceConfiguration implements EnvironmentAware {
 
 
     /**
-     * 配置 primaryDataSource
+     * 创建 primaryDataSource
      * @return
      */
-    @Bean(name = "primaryDataSource")
-    @Qualifier("primaryDataSource")
+    @Bean(name = DatabaseConstant.PRIMARY_DATASOURCE)
+    @Qualifier(DatabaseConstant.PRIMARY_DATASOURCE)
     @Primary
     //@ConfigurationProperties(prefix = "spring.datasource.primary")
     public DataSource primaryDataSource(){
-        logger.info("===============加载 primaryDataSource 数据源 开始===========");
-        DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setUrl(propertyResolver.getProperty("primary.url"));
-        dataSource.setUsername(propertyResolver.getProperty("primary.username"));
-        dataSource.setPassword(propertyResolver.getProperty("primary.password"));
-        dataSource.setDriverClassName(propertyResolver.getProperty("primary.driver"));
-        logger.info("===============加载 primaryDataSource 数据源 结束===========");
-        return dataSource;
+        return getDruidDataSource(DatabaseConstant.PRIMARY,DatabaseConstant.PRIMARY_DATASOURCE);
     }
 
     /**
-     * 配置 secondaryDataSource
+     * 创建 secondaryDataSource
      * @return
      */
-    @Bean(name = "secondaryDataSource")
-    @Qualifier("secondaryDataSource")
+    @Bean(name = DatabaseConstant.SECONDARY_DATASOURCE)
+    @Qualifier(DatabaseConstant.SECONDARY_DATASOURCE)
     //@ConfigurationProperties(prefix = "spring.datasource.secondary")
     public DataSource secondaryDataSource(){
-        logger.info("===============加载 secondaryDataSource 数据源 开始===========");
+        return getDruidDataSource(DatabaseConstant.SECONDARY,DatabaseConstant.SECONDARY_DATASOURCE);
+    }
+
+    /**
+     * 创建 DruidDataSource 数据连接池
+     * @param dbName 数据库名称
+     * @param dataSourceName 数据源名称
+     * @return
+     */
+    private DruidDataSource getDruidDataSource(String dbName,String dataSourceName){
+        logger.info("===============创建 " + dataSourceName + " 数据源 开始===========");
+        if(StringUtils.isBlank(propertyResolver.getProperty( dbName + ".url"))||
+                StringUtils.isBlank(propertyResolver.getProperty(dbName + ".username"))||
+                StringUtils.isBlank(propertyResolver.getProperty(dbName + ".password"))||
+                StringUtils.isBlank(propertyResolver.getProperty(dbName + ".driver"))){
+            logger.error(dataSourceName + " 数据源配置信息不完整");
+            throw new ApplicationContextException(dataSourceName + " 数据源配置信息不完整");
+        }
         DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setUrl(propertyResolver.getProperty("secondary.url"));
-        dataSource.setUsername(propertyResolver.getProperty("secondary.username"));
-        dataSource.setPassword(propertyResolver.getProperty("secondary.password"));
-        dataSource.setDriverClassName(propertyResolver.getProperty("secondary.driver"));
-        logger.info("===============加载 secondaryDataSource 数据源 结束===========");
+        dataSource.setUrl(propertyResolver.getProperty( dbName + ".url"));
+        dataSource.setUsername(propertyResolver.getProperty(dbName + ".username"));
+        dataSource.setPassword(propertyResolver.getProperty(dbName + ".password"));
+        dataSource.setDriverClassName(propertyResolver.getProperty(dbName + ".driver"));
+        logger.info("===============创建 " +  dataSourceName + " 数据源 结束===========");
         return dataSource;
     }
+
 
 
 }

@@ -1,8 +1,7 @@
-package com.lf.admin.dev.controller.demo;
+package com.lf.admin.demo.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 
