@@ -24,7 +24,7 @@ public class MybatisServiceTest {
     @Autowired
     MybatisService mybatisService;
 
-    int i = 9;
+    int i = 12;
 
     @Test
     public void testInsertForPrimary(){
@@ -35,6 +35,7 @@ public class MybatisServiceTest {
         mybatisService.insertForPrimary(user);
     }
 
+    @Test
     public void testInsertForSecondary(){
         User user = new User();
         user.setId(i);

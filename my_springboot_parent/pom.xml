@@ -33,6 +33,8 @@
         <!-- Mybatis ORM框架 -->
         <mybatis.version>3.2.8</mybatis.version>
         <mybatis-spring.version>1.2.0</mybatis-spring.version>
+        <!-- log4jdbc-log4j2-jdbc4.1 打印数据源执行的sql日志 -->
+        <log4jdbc-log4j2-jdbc4.1.verson>1.16</log4jdbc-log4j2-jdbc4.1.verson>
         <!-- fastjson json框架 -->
         <fastjson.version>1.2.31</fastjson.version>
         <!-- Freemarker 模版引擎框架 -->
@@ -81,6 +83,13 @@
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-spring</artifactId>
                 <version>${mybatis-spring.version}</version>
+            </dependency>
+
+            <!-- log4jdbc-log4j2-jdbc4.1 打印数据源执行的sql日志 -->
+            <dependency>
+                <groupId>org.bgee.log4jdbc-log4j2</groupId>
+                <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+                <version>${log4jdbc-log4j2-jdbc4.1.verson}</version>
             </dependency>
 
             <!-- fastjson json框架 -->

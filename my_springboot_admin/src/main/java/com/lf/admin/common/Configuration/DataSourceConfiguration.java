@@ -5,6 +5,7 @@ import com.lf.admin.common.constant.DatabaseConstant;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.bind.RelaxedPropertyResolver;
 import org.springframework.context.ApplicationContextException;
@@ -60,6 +61,13 @@ public class DataSourceConfiguration implements EnvironmentAware {
     public DataSource secondaryDataSource(){
         return getDruidDataSource(DatabaseConstant.SECONDARY,DatabaseConstant.SECONDARY_DATASOURCE);
     }
+
+
+ /*   public BeanNameAutoProxyCreator dataSourceSpyInterceptor(){
+        BeanNameAutoProxyCreator beanNameAutoProxyCreator = new BeanNameAutoProxyCreator();
+        beanNameAutoProxyCreator.setInterceptorNames();
+        beanNameAutoProxyCreator.setBeanNames(DatabaseConstant.PRIMARY_DATASOURCE,DatabaseConstant.SECONDARY_DATASOURCE);
+    }*/
 
     /**
      * 创建 DruidDataSource 数据连接池
