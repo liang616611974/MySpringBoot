@@ -1,4 +1,4 @@
-package com.lf.admin.common.Configuration;
+package com.lf.admin.common.Config;
 
 import com.lf.admin.common.constant.DatabaseConstant;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,14 +9,14 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import javax.sql.DataSource;
 
 /**
- * @Title: JdbcTemplateConfiguration.java
+ * @Title: JdbcTemplateConfig.java
  * @Description: spring JdbcTemplate 配置
  * @author Liangfeng
  * @date 2017/4/29 0029 17:16
  * @version 1.0
  */
 @Configuration
-public class JdbcTemplateConfiguration {
+public class JdbcTemplateConfig {
 
     /**
      * 配置 primaryJdbcTemplate

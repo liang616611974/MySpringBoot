@@ -1,11 +1,10 @@
-package com.lf.admin.common.Configuration;
+package com.lf.admin.common.Config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.lf.admin.common.constant.DatabaseConstant;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.bind.RelaxedPropertyResolver;
 import org.springframework.context.ApplicationContextException;
@@ -18,16 +17,16 @@ import org.springframework.core.env.Environment;
 import javax.sql.DataSource;
 
 /**
- * @Title: DataSourceConfiguration.java
+ * @Title: DataSourceConfig.java
  * @Description: 数据源配置
  * @author Liangfeng
  * @date 2017/4/29 0029 16:18
  * @version 1.0
  */
 @Configuration
-public class DataSourceConfiguration implements EnvironmentAware {
+public class DataSourceConfig implements EnvironmentAware {
 
-    private static final Logger logger = LoggerFactory.getLogger(DataSourceConfiguration.class);
+    private static final Logger logger = LoggerFactory.getLogger(DataSourceConfig.class);
 
     private Environment env;
 

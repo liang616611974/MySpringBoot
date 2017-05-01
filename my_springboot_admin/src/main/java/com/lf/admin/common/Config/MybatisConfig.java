@@ -1,4 +1,4 @@
-package com.lf.admin.common.Configuration;
+package com.lf.admin.common.Config;
 
 import com.lf.admin.common.constant.DatabaseConstant;
 import org.apache.commons.lang3.StringUtils;
@@ -20,16 +20,16 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import javax.sql.DataSource;
 
 /**
- * @Title: MybatisConfiguration.java
+ * @Title: MybatisConfig.java
  * @Description: Mybatis 配置
  * @author Liangfeng
  * @date 2017/4/30 0030 10:49
  * @version 1.0
  */
 @Configuration
-public class MybatisConfiguration implements EnvironmentAware {
+public class MybatisConfig implements EnvironmentAware {
 
-    private static final Logger logger = LoggerFactory.getLogger(MybatisConfiguration.class);
+    private static final Logger logger = LoggerFactory.getLogger(MybatisConfig.class);
 
     private Environment env;
 

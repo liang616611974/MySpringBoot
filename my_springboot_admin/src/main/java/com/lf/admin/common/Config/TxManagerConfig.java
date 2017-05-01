@@ -1,4 +1,4 @@
-package com.lf.admin.common.Configuration;
+package com.lf.admin.common.Config;
 
 import com.lf.admin.common.constant.DatabaseConstant;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,14 +11,14 @@ import org.springframework.transaction.PlatformTransactionManager;
 import javax.sql.DataSource;
 
 /**
- * @Title: TxManagerConfiguration.java
+ * @Title: TxManagerConfig.java
  * @Description: 事务管理器配置
  * @author Liangfeng
  * @date 2017/4/30 0030 8:34
  * @version 1.0
  */
 @Configuration
-public class TxManagerConfiguration {
+public class TxManagerConfig {
 
     /**
      * 创建primaryTxManager

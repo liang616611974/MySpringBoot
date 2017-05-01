@@ -1,4 +1,4 @@
-package com.lf.admin.common.Configuration;
+package com.lf.admin.common.Config;
 
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
@@ -9,14 +9,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 
 /**
- * @Title: CommonConfiguration.java
+ * @Title: CommonConfig.java
  * @Description: 
  * @author Liangfeng
  * @date 2017/4/27 0027 1:52
  * @version 1.0
  */
 @Configuration
-public class CommonConfiguration {
+public class CommonConfig {
 
     /**
      * 在这里我们使用 @Bean注入 fastJsonHttpMessageConvert

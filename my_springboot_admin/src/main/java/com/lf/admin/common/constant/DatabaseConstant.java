@@ -4,7 +4,7 @@ package com.lf.admin.common.constant;
  * @author Liangfeng
  * @version 1.0
  * @Title: DatabaseConstant.java
- * @Description: 数据库常量
+ * @Description: 数据库连接配置常量
  * @date 2017/4/30 0030 9:00
  */
 public class DatabaseConstant {

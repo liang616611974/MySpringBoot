@@ -38,21 +38,27 @@
         </dependency>
 
         <!-- spring-boot-starter-freemarker -->
-        <dependency>
+       <!-- <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
-        </dependency>
+        </dependency>-->
 
-        <!--  &lt;!&ndash; spring-boot-starter-thymeleaf &ndash;&gt;
+          <!-- spring-boot-starter-thymeleaf -->
           <dependency>
                <groupId>org.springframework.boot</groupId>
                <artifactId>spring-boot-starter-thymeleaf</artifactId>
-           </dependency>-->
+           </dependency>
 
         <!-- spring-boot-starter-jdbc -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <!-- spring-boot-starter-security -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
         <!-- srping-boot-test -->

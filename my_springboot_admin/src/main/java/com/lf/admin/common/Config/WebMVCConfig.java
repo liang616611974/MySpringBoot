@@ -1,4 +1,4 @@
-package com.lf.admin.common.Configuration;
+package com.lf.admin.common.Config;
 
 import com.lf.admin.common.web.mvc.interceptor.DemoInterceptor;
 import com.lf.admin.common.web.mvc.interceptor.DemoInterceptor2;
@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
- * <p>Title: WebMVCConfigureration<／p>
+ * <p>Title: WebMVCConfig<／p>
  * <p>Description: <／p>
  *
  * @author Liangfeng
@@ -16,7 +16,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * @date 2017-04-27 上午 11:23
  */
 @Configuration
-public class WebMVCConfigureration extends WebMvcConfigurerAdapter {
+public class WebMVCConfig extends WebMvcConfigurerAdapter {
 
 
     /**
