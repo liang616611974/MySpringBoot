@@ -15,6 +15,7 @@
     <!-- 2.别名定义 -->
     <typeAliases>
         <package name="com.lf.admin.demo.model"/>
+        <package name="com.lf.core.model"/>
         <!--
          <package name="com.lf.core.model"/>
          <package name="com.lf.admin.dev.model"/>

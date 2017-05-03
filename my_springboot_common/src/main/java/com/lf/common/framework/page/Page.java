@@ -16,30 +16,30 @@ public class Page<T> {
 	private List<T> result = null;
 
 	// 元素集合中第一条记录在总记录数中的索引
-	private long firstResultIndex = 0;
+	private int firstResultIndex = 0;
 
 	// 每页的记录数
-	private long pageSize = 10;
+	private int pageSize = 10;
 
 	// 页码的最大范围
-	private long pageWidth = 10;
+	private int pageWidth = 10;
 
 	// 总记录数
-	private long allCount = 0;
+	private int allCount = 0;
 
 	// 总页数
-	private long allPage = 0;
+	private int allPage = 0;
 
 	// 当前页
-	private long currPageNumber = 0;
+	private int currPageNumber = 0;
 
 	// 页码范围的开始
-	private long start = 0;
+	private int start = 0;
 
 	// 页码范围的结束
-	private long end = 0;
+	private int end = 0;
 
-	public Page(long allCount, long currPageNumber, long pageSize, long pageWidth) {
+	public Page(int allCount, int currPageNumber, int pageSize, int pageWidth) {
 		this.pageSize = pageSize;
 		this.allCount = allCount;
 		this.currPageNumber = currPageNumber;
@@ -57,8 +57,8 @@ public class Page<T> {
 
 		// 如果总页数超过页数范围
 		if (this.allPage > this.pageWidth) {
-			long back = this.pageWidth / 2;
-			long forward = this.pageWidth / 2;
+			int back = this.pageWidth / 2;
+			int forward = this.pageWidth / 2;
 
 			if (this.pageWidth % 2 == 0) {
 				back--;
@@ -152,7 +152,7 @@ public class Page<T> {
 	 * 
 	 * @return
 	 */
-	public long getFirstResultIndex() {
+	public int getFirstResultIndex() {
 		return firstResultIndex;
 	}
 
@@ -161,7 +161,7 @@ public class Page<T> {
 	 * 
 	 * @return 下一页编码
 	 */
-	public long getNextPageNumber() {
+	public int getNextPageNumber() {
 		return getCurrPageNumber() + 1;
 	}
 
@@ -170,7 +170,7 @@ public class Page<T> {
 	 * 
 	 * @return 上一页编码
 	 */
-	public long getPreviousPageNumber() {
+	public int getPreviousPageNumber() {
 		return getCurrPageNumber() - 1;
 	}
 
@@ -179,9 +179,9 @@ public class Page<T> {
 	 * 
 	 * @return
 	 */
-	public List<Long> getLinkPageNumbers() {
-		List<Long> list = new ArrayList<Long>();
-		for(long i=getStart(); i<=getEnd(); i++){
+	public List<Integer> getLinkPageNumbers() {
+		List<Integer> list = new ArrayList<Integer>();
+		for(int i=getStart(); i<=getEnd(); i++){
 			list.add(i);
 		}
 		return list;
@@ -191,7 +191,7 @@ public class Page<T> {
 	 * 设置第一结果
 	 * @param firstResultIndex
 	 */
-	public void setFirstResultIndex(long firstResultIndex) {
+	public void setFirstResultIndex(int firstResultIndex) {
 		this.firstResultIndex = firstResultIndex;
 	}
 
@@ -199,7 +199,7 @@ public class Page<T> {
 	 * 获取每页的记录数
 	 * @return
 	 */
-	public long getPageSize() {
+	public int getPageSize() {
 		return pageSize;
 	}
 
@@ -207,7 +207,7 @@ public class Page<T> {
 	 * 设置每页的记录数
 	 * @param pageSize
 	 */
-	public void setPageSize(long pageSize) {
+	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}
 
@@ -215,7 +215,7 @@ public class Page<T> {
 	 * 获取每页页码的范围宽度
 	 * @return
 	 */
-	public long getPageWidth() {
+	public int getPageWidth() {
 		return pageWidth;
 	}
 
@@ -223,7 +223,7 @@ public class Page<T> {
 	 * 设置每页页码的范围宽度
 	 * @param pageWidth
 	 */
-	public void setPageWidth(long pageWidth) {
+	public void setPageWidth(int pageWidth) {
 		this.pageWidth = pageWidth;
 	}
 
@@ -231,7 +231,7 @@ public class Page<T> {
 	 * 获取总记录数
 	 * @return
 	 */
-	public long getAllCount() {
+	public int getAllCount() {
 		return allCount;
 	}
 
@@ -239,7 +239,7 @@ public class Page<T> {
 	 * 设置总记录数
 	 * @param allCount
 	 */
-	public void setAllCount(long allCount) {
+	public void setAllCount(int allCount) {
 		this.allCount = allCount;
 	}
 
@@ -248,7 +248,7 @@ public class Page<T> {
 	 * 
 	 * @return
 	 */
-	public long getAllPage() {
+	public int getAllPage() {
 		return allPage;
 	}
 
@@ -256,7 +256,7 @@ public class Page<T> {
 	 * 设置总页数
 	 * @param allPage
 	 */
-	public void setAllPage(long allPage) {
+	public void setAllPage(int allPage) {
 		this.allPage = allPage;
 	}
 
@@ -264,7 +264,7 @@ public class Page<T> {
 	 * 获取当前页页码
 	 * @return
 	 */
-	public long getCurrPageNumber() {
+	public int getCurrPageNumber() {
 		return currPageNumber;
 	}
 
@@ -272,7 +272,7 @@ public class Page<T> {
 	 * 设置当前页码
 	 * @param currPageNumber
 	 */
-	public void setCurrPageNumber(long currPageNumber) {
+	public void setCurrPageNumber(int currPageNumber) {
 		this.currPageNumber = currPageNumber;
 	}
 
@@ -280,7 +280,7 @@ public class Page<T> {
 	 * 获取开始页码
 	 * @return
 	 */
-	public long getStart() {
+	public int getStart() {
 		return start;
 	}
 
@@ -288,7 +288,7 @@ public class Page<T> {
 	 * 设置开始页码
 	 * @param start
 	 */
-	public void setStart(long start) {
+	public void setStart(int start) {
 		this.start = start;
 	}
 
@@ -296,7 +296,7 @@ public class Page<T> {
 	 * 获取最后页码
 	 * @return
 	 */
-	public long getEnd() {
+	public int getEnd() {
 		return end;
 	}
 
@@ -304,7 +304,7 @@ public class Page<T> {
 	 * 设置最后页码
 	 * @param end
 	 */
-	public void setEnd(long end) {
+	public void setEnd(int end) {
 		this.end = end;
 	}
 

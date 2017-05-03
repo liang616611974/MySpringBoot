@@ -1,7 +1,10 @@
 package com.lf.admin.common.Config;
 
 import com.lf.admin.common.constant.DatabaseConstant;
+import com.lf.common.constant.MybatisConstant;
+import com.lf.common.framework.plugin.OffsetLimitInterceptor;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -13,11 +16,13 @@ import org.springframework.context.ApplicationContextException;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
+import java.util.Properties;
 
 /**
  * @Title: MybatisConfig.java
@@ -70,6 +75,7 @@ public class MybatisConfig implements EnvironmentAware {
      */
     @Bean(name = DatabaseConstant.PRIMARY_SQL_SESSION_TEMPLATE)
     @Qualifier(DatabaseConstant.PRIMARY_SQL_SESSION_TEMPLATE)
+    @Primary
     public SqlSessionTemplate primarySqlSessionTemplate(@Qualifier(DatabaseConstant.PRIMARY_SQL_SESSION_FACTORY)SqlSessionFactory sessionFactory){
         return new SqlSessionTemplate(sessionFactory);
     }
@@ -93,18 +99,28 @@ public class MybatisConfig implements EnvironmentAware {
      */
     private SqlSessionFactory getSqlSessionFactory(String sessionFactoryName, DataSource dataSource){
         logger.info("===============创建 " +  sessionFactoryName + " 开始===========");
+        // 1.校验配置参数完整性
         if(StringUtils.isBlank(propertyResolver.getProperty("configLocation"))){
             logger.error("没有配置 Mybatis.configLocation 属性");
             throw new ApplicationContextException("没有配置 Mybatis.configLocation 属性");
         }
+        // 2.创建 SqlSessionFactory
         SqlSessionFactory sessionFactory = null;
         SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource);
+        // 2.1 设置mybatis配置文件路径
         sessionFactoryBean.setConfigLocation(new DefaultResourceLoader()
                 .getResource(propertyResolver.getProperty("configLocation")));
         try {
+            // 2.2 设置Mapper.xml文件路径
             sessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
                     .getResources(propertyResolver.getProperty("mapperLocations")));
+            // 2.3 设置分页插件
+            Interceptor pageInterceptor = new OffsetLimitInterceptor();
+            Properties properties = new Properties();
+            properties.setProperty("dialectClass", MybatisConstant.MYSQL_DIALECT);
+            pageInterceptor.setProperties(properties);
+            sessionFactoryBean.setPlugins(new Interceptor[]{pageInterceptor});
             sessionFactory = sessionFactoryBean.getObject();
         }catch (Exception e){
             logger.error("创建 " +  sessionFactoryName + " 发生异常",e);

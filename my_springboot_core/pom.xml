@@ -12,5 +12,19 @@
 
     <artifactId>my_springboot_core</artifactId>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>com.lf</groupId>
+            <artifactId>my_springboot_common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+
+    </dependencies>
 
 </project>

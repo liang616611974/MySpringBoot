@@ -17,17 +17,17 @@ public class PageRequest implements Serializable {
 	/**
 	 * 页号码,页码从1开始
 	 */
-	private long pageNumber;
+	private int pageNumber;
 	
 	/**
 	 * 分页大小
 	 */
-	private long pageSize;
+	private int pageSize;
 	
 	/**
 	 * 页码范围大小
 	 */
-	private long pageWidth;
+	private int pageWidth;
 	
 	/**
 	 * 排序的多个列,如: username desc
@@ -38,27 +38,27 @@ public class PageRequest implements Serializable {
 		
 	}
 	
-	public long getPageWidth() {
+	public int getPageWidth() {
 		return pageWidth;
 	}
 
-	public void setPageWidth(long pageWidth) {
+	public void setPageWidth(int pageWidth) {
 		this.pageWidth = pageWidth;
 	}
 	
-	public long getPageNumber() {
+	public int getPageNumber() {
 		return pageNumber;
 	}
 
-	public void setPageNumber(long pageNumber) {
+	public void setPageNumber(int pageNumber) {
 		this.pageNumber = pageNumber;
 	}
 
-	public long getPageSize() {
+	public int getPageSize() {
 		return pageSize;
 	}
 
-	public void setPageSize(long pageSize) {
+	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}
 	

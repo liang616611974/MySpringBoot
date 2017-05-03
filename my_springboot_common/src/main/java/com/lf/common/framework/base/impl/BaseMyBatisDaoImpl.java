@@ -1,4 +1,4 @@
-package com.lf.common.framework.base;
+package com.lf.common.framework.base.impl;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.lf.common.Exception.DaoException;
+import com.lf.common.framework.base.BaseDao;
 import com.lf.common.framework.page.Page;
 import com.lf.common.framework.page.PageRequest;
 import org.apache.commons.beanutils.PropertyUtils;
@@ -28,7 +29,7 @@ import org.springframework.util.Assert;
 * @version 1.0
  */
 @SuppressWarnings("unchecked")
-public abstract class BaseMyBatisDaoImpl<E extends Serializable,Q extends PageRequest,PK extends Serializable> extends DaoSupport implements BaseDao<E,Q,PK> {
+public abstract class BaseMyBatisDaoImpl<E extends Serializable,Q extends PageRequest,PK extends Serializable> implements BaseDao<E,Q,PK> {
     private static final Logger logger = LoggerFactory.getLogger(BaseMyBatisDaoImpl.class);
     private static final String SQL_GET_SUFFIX = ".get";
     private static final String SQL_INSERT_SUFFIX = ".insert";
@@ -42,20 +43,9 @@ public abstract class BaseMyBatisDaoImpl<E extends Serializable,Q extends PageRe
     private static final String PAGE_FILTER_LASTROWS_KEY = "lastRows";
     private static final String PAGE_FILTER_SORTCOLUMNS_KEY = "sortColumns";
     
-    private SqlSessionFactory sqlSessionFactory;
-    
     private SqlSessionTemplate sqlSessionTemplate;
     
     public abstract String getIbatisMapperNamesapce();
-
-    @Autowired
-	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
-		this.sqlSessionFactory = sqlSessionFactory;
-	}
-
-	public SqlSessionFactory getSqlSessionFactory() {
-		return sqlSessionFactory;
-	}
 
 	@Autowired
     public void setSqlSessionTemplate(SqlSessionTemplate sqlSessionTemplate) {
@@ -65,11 +55,6 @@ public abstract class BaseMyBatisDaoImpl<E extends Serializable,Q extends PageRe
 	public SqlSessionTemplate getSqlSessionTemplate() {
     	return sqlSessionTemplate;
     }
-	
-	@Override
-	protected void checkDaoConfig() throws IllegalArgumentException {
-		Assert.notNull(sqlSessionFactory,"sqlSessionFactory must be not null");
-	}
     
 	@Override
 	public int insert(E entity) {
@@ -150,7 +135,7 @@ public abstract class BaseMyBatisDaoImpl<E extends Serializable,Q extends PageRe
 			}
 			
 			//3.如果统计记录大于0，则开始查实际数据
-			page = new Page<E>(totalCount.longValue(),pageRequest.getPageNumber(),pageRequest.getPageSize(),pageRequest.getPageWidth());
+			page = new Page<E>(totalCount.intValue(),pageRequest.getPageNumber(),pageRequest.getPageSize(),pageRequest.getPageWidth());
 			
 			//3.1构建其它分页参数,用于不喜欢或是因为兼容性而不使用方言(Dialect)的分页用户使用. 与getSqlMapClientTemplate().queryForList(statementName, parameterObject)配合使用
 			Map<String,Object> filters = new HashMap<String,Object>();

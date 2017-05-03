@@ -1,6 +1,8 @@
-package com.lf.common.framework.base;
+package com.lf.common.framework.base.impl;
 
 import com.lf.common.Exception.ServiceException;
+import com.lf.common.framework.base.BaseDao;
+import com.lf.common.framework.base.BaseService;
 import com.lf.common.framework.page.Page;
 import com.lf.common.framework.page.PageRequest;
 import org.slf4j.Logger;

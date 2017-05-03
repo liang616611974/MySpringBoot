@@ -15,7 +15,7 @@ import org.springframework.http.converter.HttpMessageConverter;
  * @date 2017/4/27 0027 1:52
  * @version 1.0
  */
-@Configuration
+//@Configuration
 public class CommonConfig {
 
     /**

@@ -76,6 +76,7 @@ public class DataSourceConfig implements EnvironmentAware {
      */
     private DruidDataSource getDruidDataSource(String dbName,String dataSourceName){
         logger.info("===============创建 " + dataSourceName + " 数据源 开始===========");
+        // 1.校验配置参数完整性
         if(StringUtils.isBlank(propertyResolver.getProperty( dbName + ".url"))||
                 StringUtils.isBlank(propertyResolver.getProperty(dbName + ".username"))||
                 StringUtils.isBlank(propertyResolver.getProperty(dbName + ".password"))||
@@ -83,6 +84,7 @@ public class DataSourceConfig implements EnvironmentAware {
             logger.error(dataSourceName + " 数据源配置信息不完整");
             throw new ApplicationContextException(dataSourceName + " 数据源配置信息不完整");
         }
+        // 2.创建 DruidDataSource 连接池
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(propertyResolver.getProperty( dbName + ".url"));
         dataSource.setUsername(propertyResolver.getProperty(dbName + ".username"));
