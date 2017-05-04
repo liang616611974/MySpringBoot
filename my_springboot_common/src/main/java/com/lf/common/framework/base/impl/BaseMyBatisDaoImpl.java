@@ -12,13 +12,10 @@ import com.lf.common.framework.page.Page;
 import com.lf.common.framework.page.PageRequest;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.ibatis.session.RowBounds;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.support.DaoSupport;
-import org.springframework.util.Assert;
 
 
 /**
@@ -36,7 +33,7 @@ public abstract class BaseMyBatisDaoImpl<E extends Serializable,Q extends PageRe
     private static final String SQL_UPDATE_SUFFIX = ".update";
     private static final String SQL_DELETE_SUFFIX = ".delete";
     private static final String SQL_QUERY_SUFFIX = ".query";
-    private static final String SQL_QUERYBYVO_SUFFIX = ".queryByVO";
+    private static final String SQL_QUERYBYQUERY_SUFFIX = ".queryByQuery";
     private static final String SQL_COUNT_SUFFIX = ".count";
     private static final String PAGE_FILTER_OFFSET_KEY = "offset";
     private static final String PAGE_FILTER_PAGESIZE_KEY = "pageSize";
@@ -180,7 +177,7 @@ public abstract class BaseMyBatisDaoImpl<E extends Serializable,Q extends PageRe
 	}
 
 	private String getFindAllByQueryStatement() {
-		return getIbatisMapperNamesapce() + SQL_QUERYBYVO_SUFFIX;
+		return getIbatisMapperNamesapce() + SQL_QUERYBYQUERY_SUFFIX;
 	}
 
 	private String getCountStatementForPaging(String statementName) {

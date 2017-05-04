@@ -24,7 +24,6 @@
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
 
-
     </dependencies>
 
 </project>

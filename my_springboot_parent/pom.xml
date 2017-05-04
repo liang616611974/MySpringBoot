@@ -4,16 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.lf</groupId>
-    <artifactId>my_springboot_parent</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>../my_springboot_core</module>
-        <module>../my_springboot_common</module>
-		<module>../my_springboot_admin</module>
-    </modules>
-    <packaging>pom</packaging>
-
     <!-- Spring Parent -->
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -21,6 +11,17 @@
         <version>1.4.5.RELEASE</version>
         <relativePath/>
     </parent>
+
+    <groupId>com.lf</groupId>
+    <artifactId>my_springboot_parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>../my_springboot_core</module>
+        <module>../my_springboot_common</module>
+        <module>../my_springboot_admin</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -228,7 +229,10 @@
         <finalName>${project.artifactId}-${project.version}</finalName>
         <resources>
             <resource>
-                <directory>src/main/resources</directory>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
             </resource>
         </resources>
         <plugins>

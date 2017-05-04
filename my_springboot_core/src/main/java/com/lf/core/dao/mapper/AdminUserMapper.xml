@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="AdminUser">
 
 	<!-- 类映射 -->
-	<resultMap id="RM_AdminUser" type="com.lf.model.AdminUser">
+	<resultMap id="RM_AdminUser" type="adminUser">
 		<result property="id" column="id" />
 		<result property="username" column="username" />
 		<result property="password" column="password" />
@@ -223,7 +223,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 根据条件查询sql -->
-	<select id="AdminUser.queryByVO" parameterType="com.lf.vo.query.AdminUserQuery" resultMap="RM_AdminUser">
+	<select id="AdminUser.queryByVO" parameterType="adminUserQuery" resultMap="RM_AdminUser">
 		SELECT
 		<include refid="AdminUser.columns" />
 		FROM a_admin_user
