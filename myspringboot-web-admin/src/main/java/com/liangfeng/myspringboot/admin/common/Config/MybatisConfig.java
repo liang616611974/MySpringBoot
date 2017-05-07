@@ -1,7 +1,6 @@
 package com.liangfeng.myspringboot.admin.common.Config;
 
 import com.liangfeng.myspringboot.admin.common.constant.DatabaseConstant;
-import com.liangfeng.myspringboot.common.constant.MybatisConstant;
 import com.liangfeng.myspringboot.common.framework.plugin.OffsetLimitInterceptor;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.plugin.Interceptor;
@@ -118,7 +117,7 @@ public class MybatisConfig implements EnvironmentAware {
             // 2.3 设置分页插件
             Interceptor pageInterceptor = new OffsetLimitInterceptor();
             Properties properties = new Properties();
-            properties.setProperty("dialectClass", MybatisConstant.MYSQL_DIALECT);
+            properties.setProperty("dialectClass", propertyResolver.getProperty("dialect"));
             pageInterceptor.setProperties(properties);
             sessionFactoryBean.setPlugins(new Interceptor[]{pageInterceptor});
             sessionFactory = sessionFactoryBean.getObject();

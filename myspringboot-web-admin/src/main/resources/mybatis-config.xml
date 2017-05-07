@@ -14,12 +14,10 @@
 
     <!-- 2.别名定义 -->
     <typeAliases>
-        <package name="com.liangfeng.admin.demo.model"/>
-        <package name="com.liangfeng.core.model"/>
-        <!--
-         <package name="com.liangfengangfeng.core.model"/>
-         <package name="com.liangfengangfeng.admin.dev.model"/>
-         -->
+        <!--<package name="com.liangfeng.myspringboot.admin.demo.model"/>
+        <package name="com.liangfeng.myspringboot.admin.dev.model"/>-->
+        <package name="com.liangfeng.myspringboot.core.model.pojo"/>
+        <package name="com.liangfeng.myspringboot.core.model.query"/>
     </typeAliases>
 
 <!--    &lt;!&ndash; mapping 文件路径配置 &ndash;&gt;

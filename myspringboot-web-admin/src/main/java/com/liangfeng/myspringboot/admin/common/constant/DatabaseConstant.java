@@ -45,7 +45,8 @@ public class DatabaseConstant {
     /** 第二 SqlSessionTemplate */
     public static final String SECONDARY_SQL_SESSION_TEMPLATE = "secondarySqlSessionTemplate";
 
-
+    /** MySql 方言类*/
+    public static final String MYSQL_DIALECT = "MySQLDialect";
 
 
 }
