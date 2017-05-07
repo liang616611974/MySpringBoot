@@ -1,4 +1,4 @@
-package com.liangfeng.myspringboot;
+package com.liangfeng.myspringboot.admin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
