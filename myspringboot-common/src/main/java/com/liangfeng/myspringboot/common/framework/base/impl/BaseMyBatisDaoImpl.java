@@ -96,7 +96,7 @@ public abstract class BaseMyBatisDaoImpl<E extends Serializable,Q extends PageRe
     };
     
     @Override
-    public long count(Q query){
+    public int count(Q query){
     	return sqlSessionTemplate.selectOne(getCountStatementForPaging(getFindAllStatement()),query);
     }
     

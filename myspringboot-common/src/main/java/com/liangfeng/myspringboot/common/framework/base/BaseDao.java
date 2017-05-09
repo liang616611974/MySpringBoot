@@ -69,6 +69,6 @@ public interface BaseDao <E extends Serializable,Q extends PageRequest,PK extend
 	 * @param query
 	 * @return
 	 */
-	long count(Q query);
+	int count(Q query);
 	
 }
